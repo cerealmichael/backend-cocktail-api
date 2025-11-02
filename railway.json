@@ -1,11 +1,9 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "npm install && node ace build"
+    "builder": "DOCKERFILE"
   },
   "deploy": {
-    "startCommand": "sh -c 'cd build && node bin/server.js'",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }

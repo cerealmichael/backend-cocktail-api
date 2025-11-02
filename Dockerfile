@@ -23,7 +23,7 @@ RUN node ace build
 FROM base
 ENV NODE_ENV=production
 WORKDIR /app
-COPY --from=production-deps /app/node_modules /app/node_modules
 COPY --from=build /app/build /app
-EXPOSE 3369
-CMD ["node", "./bin/server.js"]
+RUN cd /app && npm ci --omit=dev
+EXPOSE 3333
+CMD ["node", "bin/server.js"]

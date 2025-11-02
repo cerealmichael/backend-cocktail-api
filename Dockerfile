@@ -24,6 +24,7 @@ FROM base
 ENV NODE_ENV=production
 WORKDIR /app
 COPY --from=build /app/build /app
-RUN cd /app && npm ci --omit=dev
+COPY start.sh /app/start.sh
+RUN cd /app && npm ci --omit=dev && chmod +x /app/start.sh
 EXPOSE 3333
-CMD ["node", "bin/server.js"]
+CMD ["sh", "/app/start.sh"]

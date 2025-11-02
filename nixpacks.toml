@@ -5,7 +5,7 @@ nixPkgs = ["nodejs_22", "npm"]
 cmds = ["npm ci"]
 
 [phases.build]
-cmds = ["node ace build"]
+cmds = ["node ace build", "cd build && npm ci --omit=dev"]
 
 [start]
-cmd = "node build/bin/server.js"
+cmd = "cd build && node bin/server.js"

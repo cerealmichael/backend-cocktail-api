@@ -8,4 +8,4 @@ cmds = ["npm ci"]
 cmds = ["node ace build", "cd build && npm ci --omit=dev"]
 
 [start]
-cmd = "cd build && node bin/server.js"
+cmd = "sh -c 'cd build && node bin/server.js'"
